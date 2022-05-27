@@ -17,7 +17,7 @@ public class AccountTest {
         this.expected = expected;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Object[][] getData() {
         return new Object[][] {
                 {"Строка должна быть корректной (кириллица, 3 символа 1 пробел)", "Н У", true}, //граничное значение (3 символа)
@@ -50,6 +50,6 @@ public class AccountTest {
     public void checkNameToEmbossTest() {
         Account account = new Account(name);
         boolean actual = account.checkNameToEmboss(name);
-        assertEquals(errorMessage, actual, expected);
+        assertEquals(errorMessage, expected, actual);
     }
 }
